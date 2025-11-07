@@ -25,17 +25,17 @@ return new class extends Migration
             $table->timestamps();
 
             
-            $table->foreign('id_usuario')
-                ->references('id_usuario')
-                ->on('tbl_usuarios')
-                ->onUpdate('cascade')
-                ->onDelete('restrict');
+            // $table->foreign('id_usuario')
+            //     ->references('id_usuario')
+            //     ->on('tbl_usuarios')
+            //     ->onUpdate('cascade')
+            //     ->onDelete('restrict');
 
-            $table->foreign('id_pago')
-                ->references('id_pago')
-                ->on('tbl_pagos')
-                ->onUpdate('cascade')
-                ->onDelete('restrict');
+            // $table->foreign('id_pago')
+            //     ->references('id_pago')
+            //     ->on('tbl_pagos')
+            //     ->onUpdate('cascade')
+            //     ->onDelete('restrict');
         });
     }
 

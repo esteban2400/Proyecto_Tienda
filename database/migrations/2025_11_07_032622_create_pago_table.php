@@ -24,11 +24,11 @@ return new class extends Migration
             $table->timestamps();
 
             // Clave foránea
-            $table->foreign('id_pedido')
-                ->references('id_pedido')
-                ->on('tbl_pedidos')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            // $table->foreign('id_pedido')
+            //     ->references('id_pedido')
+            //     ->on('tbl_pedidos')
+            //     ->onUpdate('cascade')
+            //     ->onDelete('cascade');
         });
     }
 

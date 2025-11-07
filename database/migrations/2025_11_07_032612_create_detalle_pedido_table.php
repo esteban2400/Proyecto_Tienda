@@ -25,23 +25,23 @@ return new class extends Migration
             $table->timestamps();
 
             // Relaciones (claves foráneas)
-            $table->foreign('id_pedido')
-                ->references('id_pedido')
-                ->on('tbl_pedidos')
-                ->onUpdate('cascade')
-                ->onDelete('cascade');
+            // $table->foreign('id_pedido')
+            //     ->references('id_pedido')
+            //     ->on('tbl_pedidos')
+            //     ->onUpdate('cascade')
+            //     ->onDelete('cascade');
 
-            $table->foreign('id_producto')
-                ->references('id_producto')
-                ->on('tbl_productos')
-                ->onUpdate('cascade')
-                ->onDelete('restrict');
+            // $table->foreign('id_producto')
+            //     ->references('id_producto')
+            //     ->on('tbl_productos')
+            //     ->onUpdate('cascade')
+            //     ->onDelete('restrict');
 
-            $table->foreign('id_personalizacion')
-                ->references('id_personalizacion')
-                ->on('tbl_personalizaciones')
-                ->onUpdate('cascade')
-                ->onDelete('set null');
+            // $table->foreign('id_personalizacion')
+            //     ->references('id_personalizacion')
+            //     ->on('tbl_personalizaciones')
+            //     ->onUpdate('cascade')
+            //     ->onDelete('set null');
         });
     }
 
