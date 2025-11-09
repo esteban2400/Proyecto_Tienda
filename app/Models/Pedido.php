@@ -22,6 +22,11 @@ class Pedido extends Model
         'metodo_pago'
     ];
 
+    public function usuario()
+    {
+        return $this->belongsTo(Usuarios::class, 'id_usuario', 'id_usuario');
+    }
+
     public function detalles()
     {
         return $this->hasMany(DetallePedido::class, 'id_pedido', 'id_pedido');

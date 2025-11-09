@@ -10,7 +10,7 @@ class DetallePedido extends Model
     use HasFactory;
 
     protected $table = 'tbl_detalle_pedido';
-    protected $primaryKey = 'id_detalle_pedido';
+    protected $primaryKey = 'id_detalle';
 
     protected $fillable = [
         'id_pedido',
@@ -24,5 +24,10 @@ class DetallePedido extends Model
     public function pedido()
     {
         return $this->belongsTo(Pedido::class, 'id_pedido', 'id_pedido');
+    }
+
+    public function producto()
+    {
+        return $this->belongsTo(Productos::class, 'id_producto', 'id_producto');
     }
 }
