@@ -8,7 +8,10 @@ return new class extends Migration
 {
     public function up(): void
     {
-        Schema::create('tblPersonalizaciones', function (Blueprint $table) {
+        
+         if (!Schema::hasTable('tblPersonalizaciones')) {
+
+    Schema::create('tblPersonalizaciones', function (Blueprint $table) {
             $table->id('id_personalizacion');
             
             $table->unsignedBigInteger('id_producto');
@@ -35,10 +38,13 @@ return new class extends Migration
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
         });
+    } 
     }
 
     public function down(): void
     {
         Schema::dropIfExists('tblPersonalizaciones');
     }
-};
+    };
+    
+    

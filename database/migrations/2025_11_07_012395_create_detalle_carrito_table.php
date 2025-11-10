@@ -23,7 +23,7 @@ return new class extends Migration
             
             $table->foreign('id_carrito')
                 ->references('id_carrito')
-                ->on('tblCarritos')
+                ->on('tblCarrito')
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
 
