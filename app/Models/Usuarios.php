@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Pedido;
+use App\Models\Personalizaciones;
+use App\Models\Carrito;
+
 
 class Usuarios extends Model
 {
@@ -28,7 +32,7 @@ class Usuarios extends Model
 
     public function personalizaciones()
     {
-        return $this->hasMany(Personalizacion::class, 'id_usuario', 'id_usuario');
+        return $this->hasMany(Personalizaciones::class, 'id_usuario', 'id_usuario');
     }
 
     public function carrito()

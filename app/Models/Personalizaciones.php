@@ -4,6 +4,8 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Productos;
+use App\Models\Usuarios;
 
 class Personalizaciones extends Model
 {
@@ -25,12 +27,12 @@ class Personalizaciones extends Model
 
     public function producto()
     {
-        return $this->belongsTo(Producto::class, 'id_producto', 'id_producto');
+        return $this->belongsTo(Productos::class, 'id_producto', 'id_producto');
     }
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class, 'id_usuario', 'id_usuario');
+        return $this->belongsTo(Usuarios::class, 'id_usuario', 'id_usuario');
     }
 }
 

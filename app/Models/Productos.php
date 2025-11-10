@@ -4,6 +4,10 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Categorias;
+use App\Models\Personalizaciones;
+use App\Models\DetallePedido;
+use App\Models\DetalleCarrito;
 
 class Productos extends Model
 {
@@ -23,12 +27,12 @@ class Productos extends Model
 
     public function categoria()
     {
-        return $this->belongsTo(Categoria::class, 'id_categoria', 'id_categoria');
+        return $this->belongsTo(Categorias::class, 'id_categoria', 'id_categoria');
     }
 
     public function personalizaciones()
     {
-        return $this->hasMany(Personalizacion::class, 'id_producto', 'id_producto');
+        return $this->hasMany(Personalizaciones::class, 'id_producto', 'id_producto');
     }
 
     public function detallesPedido()

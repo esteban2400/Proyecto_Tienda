@@ -4,12 +4,14 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\DetalleCarrito;
+use App\Models\Usuarios;
 
 class Carrito extends Model
 {
     use HasFactory;
 
-    protected $table = 'tbl_carritos';
+    protected $table = 'tbl_carrito';
     protected $primaryKey = 'id_carrito';
 
     protected $fillable = [
@@ -23,6 +25,6 @@ class Carrito extends Model
 
     public function usuario()
     {
-        return $this->belongsTo(Usuario::class, 'id_usuario', 'id_usuario');
+        return $this->belongsTo(Usuarios::class, 'id_usuario', 'id_usuario');
     }
 }
