@@ -1,48 +1,46 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Services\UsuarioService;
+use App\Http\Requests\UsuarioRequest;
 
-class UsuariosController extends Controller
+class UsuarioController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+    protected $service;
+
+    public function __construct(UsuarioService $service)
+    {
+        $this->service = $service;
+    }
+
     public function index()
     {
-        //
+        return response()->json($this->service->getAll());
     }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    public function show($id)
     {
-        //
+        $usuario = $this->service->getById($id);
+        if (!$usuario) return response()->json(['message' => 'No encontrado'], 404);
+        return response()->json($usuario);
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    public function store(UsuarioRequest $request)
     {
-        //
+        return response()->json($this->service->create($request->validated()), 201);
     }
 
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, string $id)
+    public function update(UsuarioRequest $request, $id)
     {
-        //
+        $usuario = $this->service->update($id, $request->validated());
+        if (!$usuario) return response()->json(['message' => 'No encontrado'], 404);
+        return response()->json($usuario);
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $deleted = $this->service->delete($id);
+        if (!$deleted) return response()->json(['message' => 'No encontrado'], 404);
+        return response()->json(['message' => 'Eliminado']);
     }
 }
