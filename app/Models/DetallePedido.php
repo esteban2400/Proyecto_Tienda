@@ -1,0 +1,35 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use App\Models\Pedido;
+use App\Models\Productos;
+
+class DetallePedido extends Model
+{
+    use HasFactory;
+
+    protected $table = 'tbl_detalle_pedido';
+    protected $primaryKey = 'id_detalle';
+
+    protected $fillable = [
+        'id_pedido',
+        'id_producto',
+        'id_personalizacion',
+        'cantidad',
+        'precio_unitario',
+        'subtotal'
+    ];
+
+    public function pedido()
+    {
+        return $this->belongsTo(Pedido::class, 'id_pedido', 'id_pedido');
+    }
+
+    public function producto()
+    {
+        return $this->belongsTo(Productos::class, 'id_producto', 'id_producto');
+    }
+}
